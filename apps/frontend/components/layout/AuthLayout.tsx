@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Grid, Box } from "@mui/material";
+import { Box } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 
 export default function AuthLayout({
   children,
@@ -11,9 +12,7 @@ export default function AuthLayout({
   return (
     <Grid container sx={{ height: "100vh", overflow: "hidden" }}>
       <Grid
-        item
-        xs={12}
-        md={6}
+        size={{ xs: 12, md: 6 }}
         sx={{
           height: "100%",
           position: "relative",
@@ -27,7 +26,7 @@ export default function AuthLayout({
           }}
         >
           <Image
-            src="/auth.png"
+            src="/images/auth.png"
             alt="Authentication Illustration"
             fill
             priority
@@ -37,9 +36,7 @@ export default function AuthLayout({
       </Grid>
 
       <Grid
-        item
-        xs={12}
-        md={6}
+        size={{ xs: 12, md: 6 }}
         sx={{
           height: { xs: "auto", md: "100%" },
           display: "flex",
