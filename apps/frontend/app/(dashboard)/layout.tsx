@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Sidebar from "@/components/layout/Sidebar";
-import Navbar from "@/components/layout/Navbar";
+import Sidebar from "@/components/layout/sidebar/Sidebar";
+import Navbar from "@/components/layout/navbar/Navbar";
 
 export default function DashboardLayout({
   children,

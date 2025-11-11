@@ -1,4 +1,5 @@
-import LoginForm from "../../features/auth/components/LoginForm";
+import LoginForm from "@/components/features/auth/components/LoginForm";
+import { useState } from "react";
 
 export default function LoginPage() {
   return (
