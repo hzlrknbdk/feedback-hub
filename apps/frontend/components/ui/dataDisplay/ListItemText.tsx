@@ -21,7 +21,7 @@ export const ListItemText = ({
   ...rest
 }: CustomListItemTextProps) => {
   const primaryStyles: PrimaryTypographySlotProps["sx"] = {
-    fontSize: SIZES.fontSize.lg,
+    fontSize: SIZES.fontSize.md,
     fontWeight: active ? SIZES.fontWeight.medium : SIZES.fontWeight.normal,
   };
 

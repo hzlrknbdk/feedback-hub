@@ -65,20 +65,14 @@ export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
         >
           FeedBack Hub
         </Typography>
-        <IconButton
+        <MenuIcon
           sx={{
-            ml: 10,
+            fontSize: 22,
+            transition: "transform 0.3s ease-in-out",
+            transform: isMenuOpen ? "rotate(0deg)" : "rotate(180deg)",
           }}
-        >
-          <MenuIcon
-            sx={{
-              fontSize: 22,
-              transition: "transform 0.3s ease-in-out",
-              transform: isMenuOpen ? "rotate(0deg)" : "rotate(180deg)",
-            }}
-            onClick={onMenuClick}
-          />
-        </IconButton>
+          onClick={onMenuClick}
+        />
       </Box>
 
       <Box sx={{ flexGrow: 1, maxWidth: 600, px: SIZES.spacing.md }}>

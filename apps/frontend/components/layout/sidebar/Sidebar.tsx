@@ -2,10 +2,10 @@
 
 import { List, Typography } from "@/ui/dataDisplay";
 import { Box } from "@mui/material";
-import { MAIN_MENU, ADMIN_MENU } from "@/config/navigation";
+import { MAIN_MENU } from "@/config/navigation";
 import { MenuItem } from "@/lib/types/navigation";
 import { SidebarMenuItem } from "./SidebarMenuItem";
-import { COLORS, SIZES, TRANSITIONS } from "@/styles";
+import { COLORS, SIZES } from "@/styles";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -42,35 +42,6 @@ export default function Sidebar({ isOpen }: SidebarProps) {
             />
           ))}
         </List>
-
-        {isOpen && (
-          <Box sx={{ mt: SIZES.spacing.lg }}>
-            <Typography
-              variant="caption"
-              sx={{
-                px: 1.5,
-                py: 1,
-                display: "block",
-                color: COLORS.text.tertiary,
-                fontWeight: SIZES.fontWeight.semibold,
-                fontSize: 11,
-                textTransform: "uppercase",
-                letterSpacing: 0.5,
-              }}
-            >
-              Admin
-            </Typography>
-            <List disablePadding sx={{ mt: SIZES.spacing.xs }}>
-              {ADMIN_MENU.map((item: MenuItem) => (
-                <SidebarMenuItem
-                  key={item.text}
-                  item={item}
-                  isCollapsed={!isOpen}
-                />
-              ))}
-            </List>
-          </Box>
-        )}
       </Box>
     </Box>
   );
