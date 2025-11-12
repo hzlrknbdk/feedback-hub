@@ -63,7 +63,7 @@ export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
             mx: SIZES.spacing.md,
           }}
         >
-          FormMind
+          FeedBack Hub
         </Typography>
         <IconButton
           sx={{

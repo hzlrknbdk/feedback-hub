@@ -26,13 +26,10 @@ const Logo: React.FC<LogoProps> = ({
       onClick={onClick}
       className={`flex items-center gap-2 ${onClick ? "cursor-pointer" : ""} ${className}`}
     >
-      <div
-        className={`${sizes[size]} rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg`}
-      >
-        <span className="text-white font-bold">FM</span>
-      </div>
       {showText && (
-        <span className="text-xl font-semibold text-gray-900">formMind</span>
+        <span className="text-xl font-semibold text-gray-900">
+          FeedBack Hub
+        </span>
       )}
     </div>
   );
