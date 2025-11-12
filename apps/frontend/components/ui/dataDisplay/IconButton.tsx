@@ -12,11 +12,20 @@ export const IconButton = ({
     <MuiIconButton
       {...rest}
       sx={{
+        borderRadius: 0.5,
         width: 40,
         height: 40,
-        color: color === "default" ? "#64748b" : undefined,
+        color: "#0E172A",
+        transition: "all 0.2s ease-in-out",
+        "& .MuiSvgIcon-root": {
+          fill: "#0E172A",
+        },
         "&:hover": {
-          bgcolor: "rgba(99, 102, 241, 0.04)",
+          bgcolor: "#E0E1FC",
+          color: "#6366f1",
+          "& .MuiSvgIcon-root": {
+            fill: "#6366f1",
+          },
         },
         ...sx,
       }}

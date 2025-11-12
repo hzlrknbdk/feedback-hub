@@ -17,7 +17,12 @@ import { IconButton } from "@/ui/dataDisplay/IconButton";
 import { Dropdown } from "@/ui/base/Dropdown";
 import { SearchBar } from "@/ui/form/SearchBar";
 
-export default function Navbar() {
+interface NavbarProps {
+  onMenuClick: () => void;
+  isMenuOpen: boolean;
+}
+
+export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
   const userMenuItems = [
     {
       label: "Profile",
@@ -56,16 +61,20 @@ export default function Navbar() {
         >
           FormMind
         </Typography>
-        <MuiIconButton
+        <IconButton
           sx={{
-            color: "#64748b",
-            width: 40,
-            height: 40,
             ml: 10,
           }}
         >
-          <MenuIcon />
-        </MuiIconButton>
+          <MenuIcon
+            sx={{
+              fontSize: 22,
+              transition: "transform 0.3s ease-in-out",
+              transform: isMenuOpen ? "rotate(0deg)" : "rotate(180deg)",
+            }}
+            onClick={onMenuClick}
+          />
+        </IconButton>
       </Box>
 
       <Box sx={{ flexGrow: 1, maxWidth: 600, px: 3 }}>
@@ -113,7 +122,7 @@ export default function Navbar() {
               >
                 Hazal Budak
               </Typography>
-              <KeyboardArrowDownIcon sx={{ color: "#6366F1", fontSize: 18 }} />
+              <KeyboardArrowDownIcon sx={{ color: "#6366F1", fontSize: 20 }} />
             </Box>
           }
         />

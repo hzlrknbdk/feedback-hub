@@ -1,4 +1,4 @@
-export default function FormDetailLayout({
+export default function FormsLayout({
   children,
 }: {
   children: React.ReactNode;

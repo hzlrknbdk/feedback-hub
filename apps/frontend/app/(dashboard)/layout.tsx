@@ -1,25 +1,33 @@
+"use client";
+
 import { Box } from "@mui/material";
 import Sidebar from "@/components/layout/sidebar/Sidebar";
 import Navbar from "@/components/layout/navbar/Navbar";
-
-export default function DashboardLayout({
-  children,
-}: {
+import { useState } from "react";
+interface DashboardLayoutProps {
   children: React.ReactNode;
-}) {
-  return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <Navbar />
+}
 
-      <Box sx={{ display: "flex", flexGrow: 1, overflow: "hidden" }}>
-        <Sidebar />
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const handleMenuClick = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  return (
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+      <Navbar onMenuClick={handleMenuClick} isMenuOpen={sidebarOpen} />
+
+      <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
+        <Sidebar isOpen={sidebarOpen} />
+
         <Box
-          component="main"
           sx={{
-            flexGrow: 1,
-            p: 3,
+            flex: 1,
             overflow: "auto",
             bgcolor: "#f8fafc",
+            p: 3,
           }}
         >
           {children}
