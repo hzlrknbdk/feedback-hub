@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import { SIZES } from "@/styles";
 
 export default function AuthLayout({
   children,
@@ -42,7 +43,7 @@ export default function AuthLayout({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          p: 8,
+          p: SIZES.spacing.xl,
         }}
       >
         <Box sx={{ width: "100%" }}>{children}</Box>

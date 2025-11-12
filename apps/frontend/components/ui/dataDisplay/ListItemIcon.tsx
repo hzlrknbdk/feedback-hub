@@ -4,6 +4,7 @@ import {
   ListItemIcon as MuiListItemIcon,
   ListItemIconProps,
 } from "@mui/material";
+import { COLORS, SIZES } from "@/styles";
 
 interface CustomListItemIconProps extends ListItemIconProps {
   active?: boolean;
@@ -20,7 +21,7 @@ export const ListItemIcon = ({
       {...rest}
       sx={{
         minWidth: 36,
-        color: active ? "white" : "#64748b",
+        color: active ? COLORS.text.light : COLORS.text.tertiary,
         ...sx,
       }}
     >

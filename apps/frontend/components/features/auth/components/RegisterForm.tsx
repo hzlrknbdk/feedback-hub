@@ -6,11 +6,12 @@ import { Button } from "@/components/ui/base/Button";
 import { TextField } from "@/components/ui/form/TextField";
 import { Stack, Typography, Link, Divider } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import { COLORS, SIZES } from "@/styles";
 
 export default function RegisterForm() {
   return (
     <form>
-      <Stack spacing={3}>
+      <Stack spacing={SIZES.spacing.lg}>
         <Typography variant="h4">Create an account</Typography>
 
         <Typography variant="body1">
@@ -19,13 +20,13 @@ export default function RegisterForm() {
             component={NextLink}
             href="/login"
             underline="hover"
-            sx={{ color: "#6366f1" }}
+            sx={{ color: COLORS.primary }}
           >
             Log in
           </Link>
         </Typography>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={SIZES.spacing.sm}>
           <Grid size={{ xs: 6 }}>
             <TextField
               label="First name"
@@ -61,7 +62,7 @@ export default function RegisterForm() {
 
         <Button type="submit">Create account</Button>
 
-        <Divider sx={{ color: "gray" }}>Or register with</Divider>
+        <Divider sx={{ color: COLORS.text.tertiary }}>Or register with</Divider>
 
         <Button
           variant="outlined"

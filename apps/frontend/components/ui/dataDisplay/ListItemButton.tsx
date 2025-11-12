@@ -4,6 +4,7 @@ import {
   ListItemButton as MuiListItemButton,
   ListItemButtonProps as MuiListItemButtonProps,
 } from "@mui/material";
+import { COLORS, SIZES, TRANSITIONS } from "@/styles";
 
 interface CustomListItemButtonProps extends MuiListItemButtonProps {
   active?: boolean;
@@ -19,14 +20,12 @@ export const ListItemButton = ({
     <MuiListItemButton
       {...rest}
       sx={{
-        borderRadius: 2,
-        py: 1.25,
-        px: 1.5,
-        bgcolor: active ? "#6366f1" : "transparent",
-        color: active ? "white" : "#64748b",
-        transition: "all 0.2s",
+        borderRadius: SIZES.radius.md,
+        bgcolor: active ? COLORS.primary : "transparent",
+        color: active ? COLORS.text.light : COLORS.text.tertiary,
+        transition: TRANSITIONS.smooth,
         "&:hover": {
-          bgcolor: active ? "#5558e3" : "#f1f5f9",
+          bgcolor: active ? COLORS.primaryDark : COLORS.backgroundLight,
         },
         ...sx,
       }}

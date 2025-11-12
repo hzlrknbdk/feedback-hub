@@ -4,21 +4,28 @@ import NextLink from "next/link";
 import { Stack, Typography, Link, Box } from "@mui/material";
 import { Button } from "@/components/ui/base/Button";
 import { TextField } from "@/components/ui/form/TextField";
+import { COLORS, SIZES } from "@/styles";
 
 export default function LoginForm() {
   return (
-    <Box sx={{ width: "100%", maxWidth: 650, mx: "auto" }}>
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: SIZES.maxWidth,
+        mx: "auto",
+      }}
+    >
       <form>
-        <Stack spacing={3}>
+        <Stack spacing={SIZES.spacing.lg}>
           <Typography variant="h4">Welcome back</Typography>
 
           <Typography variant="body1">
-            Don’t have an account?{" "}
+            Don't have an account?{" "}
             <Link
               component={NextLink}
               href="/register"
               underline="hover"
-              sx={{ color: "#6366f1" }}
+              sx={{ color: COLORS.primary }}
             >
               Sign up
             </Link>

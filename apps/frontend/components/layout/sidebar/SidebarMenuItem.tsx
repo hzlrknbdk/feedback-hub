@@ -5,42 +5,29 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Chip,
 } from "@/ui/dataDisplay";
 import { MenuItem } from "@/lib/types/navigation";
 import { useRouter, usePathname } from "next/navigation";
 import { useMemo } from "react";
+import { COLORS, SIZES, TRANSITIONS } from "@/styles";
 
-const COLORS = {
-  primary: "#6366f1",
-  text: {
-    dark: "#0E172A",
-    light: "#ffffff",
-  },
-  hover: {
-    bg: "#E0E1FC",
-  },
-  badge: {
-    success: "#10b981",
-    danger: "#ef4444",
-  },
-};
+interface SidebarMenuItemProps {
+  item: MenuItem;
+  isCollapsed: boolean;
+}
 
 const getButtonStyles = (isActive: boolean, isCollapsed: boolean) => ({
-  borderRadius: 2,
-  py: 1.25,
-  px: isCollapsed ? 1 : 1.5,
-  transition: "all 0.2s ease-in-out",
+  borderRadius: SIZES.radius.md,
+  transition: TRANSITIONS.smooth,
   justifyContent: isCollapsed ? "center" : "flex-start",
   bgcolor: isActive ? COLORS.primary : "transparent",
   color: "inherit",
   "& .MuiListItemText-primary": {
-    color: isActive ? COLORS.text.light : COLORS.text.dark,
-    fontSize: "1rem",
-    fontWeight: isActive ? 500 : 400,
+    color: isActive ? COLORS.text.light : COLORS.text.primary,
+    fontWeight: isActive ? SIZES.fontWeight.medium : SIZES.fontWeight.normal,
   },
   "& .MuiListItemIcon-root .MuiSvgIcon-root": {
-    fill: isActive ? COLORS.text.light : COLORS.text.dark,
+    fill: isActive ? COLORS.text.light : COLORS.text.primary,
   },
   "&:hover": isActive
     ? {
@@ -50,7 +37,7 @@ const getButtonStyles = (isActive: boolean, isCollapsed: boolean) => ({
       }
     : {
         transform: "translateX(4px)",
-        bgcolor: COLORS.hover.bg,
+        bgcolor: COLORS.hover,
         color: COLORS.primary,
         "& .MuiListItemText-primary": {
           color: COLORS.primary,
@@ -60,11 +47,6 @@ const getButtonStyles = (isActive: boolean, isCollapsed: boolean) => ({
         },
       },
 });
-
-interface SidebarMenuItemProps {
-  item: MenuItem;
-  isCollapsed: boolean;
-}
 
 export function SidebarMenuItem({ item, isCollapsed }: SidebarMenuItemProps) {
   const router = useRouter();
@@ -83,49 +65,17 @@ export function SidebarMenuItem({ item, isCollapsed }: SidebarMenuItemProps) {
   );
 
   return (
-    <ListItem disablePadding sx={{ mb: 0.5 }}>
+    <ListItem disablePadding sx={{ mb: SIZES.spacing.xs }}>
       <ListItemButton onClick={handleClick} sx={buttonStyles}>
         <ListItemIcon
           sx={{
             minWidth: isCollapsed ? "auto" : 36,
-            color: isActive ? COLORS.text.light : COLORS.text.dark,
+            color: isActive ? COLORS.text.light : COLORS.text.primary,
           }}
         >
           <IconComponent />
         </ListItemIcon>
-
-        {!isCollapsed && (
-          <>
-            <ListItemText primary={item.text} />
-            {item.badge && (
-              <Chip
-                label={item.badge}
-                size="small"
-                sx={{
-                  height: 20,
-                  fontSize: 11,
-                  bgcolor: COLORS.badge.success,
-                  color: COLORS.text.light,
-                  fontWeight: 600,
-                }}
-              />
-            )}
-            {item.notification && (
-              <Chip
-                label={item.notification}
-                size="small"
-                sx={{
-                  height: 20,
-                  minWidth: 20,
-                  fontSize: 11,
-                  bgcolor: COLORS.badge.danger,
-                  color: COLORS.text.light,
-                  fontWeight: 600,
-                }}
-              />
-            )}
-          </>
-        )}
+        {!isCollapsed && <ListItemText primary={item.text} />}
       </ListItemButton>
     </ListItem>
   );

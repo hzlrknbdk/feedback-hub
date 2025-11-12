@@ -1,8 +1,11 @@
+"use client";
+
 import {
   ListItemText as MuiListItemText,
   ListItemTextProps,
   TypographyProps,
 } from "@mui/material";
+import { SIZES } from "@/styles";
 
 type PrimaryTypographySlotProps = Partial<TypographyProps>;
 
@@ -18,8 +21,8 @@ export const ListItemText = ({
   ...rest
 }: CustomListItemTextProps) => {
   const primaryStyles: PrimaryTypographySlotProps["sx"] = {
-    fontSize: "1rem",
-    fontWeight: active ? 500 : 400,
+    fontSize: SIZES.fontSize.lg,
+    fontWeight: active ? SIZES.fontWeight.medium : SIZES.fontWeight.normal,
   };
 
   return (

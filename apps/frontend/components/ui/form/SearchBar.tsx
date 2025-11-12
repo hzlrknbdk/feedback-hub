@@ -3,12 +3,12 @@
 import { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
 import { Box, InputBase, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { COLORS, SIZES, TRANSITIONS } from "@/styles";
 
 interface SearchBarProps {
   placeholder?: string;
-  shortcut?: string;
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
   onSearch?: (value: string) => void;
   fullWidth?: boolean;
   className?: string;
@@ -16,7 +16,6 @@ interface SearchBarProps {
 
 export const SearchBar = ({
   placeholder = "Search...",
-  shortcut = "Ctrl+K",
   value: controlledValue,
   onChange,
   onSearch,
@@ -34,12 +33,12 @@ export const SearchBar = ({
       setInternalValue(newValue);
     }
 
-    onChange?.(newValue);
+    onChange?.(e);
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      onSearch?.(searchValue);
+      onSearch?.(searchValue as string);
     }
   };
 
@@ -68,31 +67,40 @@ export const SearchBar = ({
         value={searchValue}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder={`${placeholder} (${shortcut})`}
+        placeholder={placeholder}
         startAdornment={
           <InputAdornment position="start">
-            <SearchIcon sx={{ color: "#94a3b8", fontSize: 20 }} />
+            <SearchIcon
+              sx={{
+                color: COLORS.text.tertiary,
+                fontSize: SIZES.iconSizeSmall,
+              }}
+            />
           </InputAdornment>
         }
         sx={{
-          height: 40,
-          px: 2,
-          backgroundColor: "#f8fafc",
-          border: "1px solid #e2e8f0",
-          borderRadius: 2,
-          fontSize: "0.875rem",
-          transition: "all 0.2s",
+          height: SIZES.buttonHeight,
+          px: SIZES.spacing.md,
+          backgroundColor: COLORS.backgroundLight,
+          border: `1px solid ${COLORS.border}`,
+          borderRadius: SIZES.radius.md,
+          fontSize: SIZES.fontSize.sm,
+          transition: TRANSITIONS.smooth,
           "&:hover": {
-            borderColor: "#cbd5e1",
+            borderColor: COLORS.borderLight,
           },
           "&.Mui-focused": {
-            backgroundColor: "white",
-            borderColor: "#6366f1",
-            boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.1)",
+            backgroundColor: COLORS.background,
+            borderColor: COLORS.primary,
+            boxShadow: `0 0 0 3px ${COLORS.primaryLighter}`,
           },
           "& .MuiInputBase-input": {
             padding: 0,
-            pl: 1,
+            pl: SIZES.spacing.sm,
+            "&::placeholder": {
+              color: COLORS.text.tertiary,
+              opacity: 1,
+            },
           },
         }}
       />
