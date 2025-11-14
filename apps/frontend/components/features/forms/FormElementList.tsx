@@ -46,7 +46,6 @@ const FormElementList: FC<FormElementListProps> = ({ onElementSelect }) => {
             mb: SIZES.spacing.md,
             fontSize: SIZES.fontSize["2xl"],
             fontWeight: SIZES.fontWeight.medium,
-            color: COLORS.primaryLight,
           }}
         >
           + Components

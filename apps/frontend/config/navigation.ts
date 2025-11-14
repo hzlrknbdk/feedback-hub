@@ -59,7 +59,7 @@ export const MAIN_MENU: MenuItem[] = [
     href: "/security",
   },
   {
-    text: "Help & Support",
+    text: "Help",
     icon: ICONS.help,
     href: "/help",
   },

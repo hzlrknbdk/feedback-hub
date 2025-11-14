@@ -1,9 +1,12 @@
+import React, { FC, ReactNode } from "react";
 import AuthLayout from "@/components/layout/AuthLayout";
 
-export default function AuthSegmentLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <AuthLayout>{children}</AuthLayout>;
+interface AuthSegmentLayoutProps {
+  children: ReactNode;
 }
+
+const AuthSegmentLayout: FC<AuthSegmentLayoutProps> = ({ children }) => {
+  return <AuthLayout>{children}</AuthLayout>;
+};
+
+export default AuthSegmentLayout;

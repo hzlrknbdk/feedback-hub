@@ -1,5 +1,6 @@
 "use client";
 
+import React, { FC, useMemo } from "react";
 import {
   ListItem,
   ListItemButton,
@@ -8,12 +9,12 @@ import {
 } from "@/ui/dataDisplay";
 import { MenuItem } from "@/lib/types/navigation";
 import { useRouter, usePathname } from "next/navigation";
-import { useMemo } from "react";
 import { COLORS, SIZES, TRANSITIONS } from "@/styles";
 
 interface SidebarMenuItemProps {
   item: MenuItem;
   isCollapsed: boolean;
+  onItemClick?: () => void;
 }
 
 const getButtonStyles = (isActive: boolean, isCollapsed: boolean) => ({
@@ -48,7 +49,11 @@ const getButtonStyles = (isActive: boolean, isCollapsed: boolean) => ({
       },
 });
 
-export function SidebarMenuItem({ item, isCollapsed }: SidebarMenuItemProps) {
+const SidebarMenuItem: FC<SidebarMenuItemProps> = ({
+  item,
+  isCollapsed,
+  onItemClick,
+}) => {
   const router = useRouter();
   const pathname = usePathname();
   const isActive = useMemo(() => pathname === item.href, [pathname, item.href]);
@@ -56,6 +61,7 @@ export function SidebarMenuItem({ item, isCollapsed }: SidebarMenuItemProps) {
   const IconComponent = item.icon;
 
   const handleClick = () => {
+    onItemClick?.();
     router.push(item.href);
   };
 
@@ -79,4 +85,6 @@ export function SidebarMenuItem({ item, isCollapsed }: SidebarMenuItemProps) {
       </ListItemButton>
     </ListItem>
   );
-}
+};
+
+export { SidebarMenuItem };

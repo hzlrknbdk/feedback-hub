@@ -49,3 +49,13 @@ a {
     display: unset;
   }
 }
+
+::selection {
+  background-color: #b1d5fe;
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: #b1d5fe;
+  color: inherit;
+}

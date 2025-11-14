@@ -9,50 +9,61 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { COLORS, SIZES } from "@/styles";
+
+interface CustomTextFieldProps extends Omit<TextFieldProps, "variant"> {
+  variant?: "outlined" | "standard" | "filled";
+  focusBorderColor?: string;
+}
 
 export const TextField = ({
   sx,
   type,
   fullWidth = true,
   variant = "outlined",
+  focusBorderColor = COLORS.primary,
+  slotProps,
   ...rest
-}: TextFieldProps) => {
+}: CustomTextFieldProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
 
   return (
     <MuiTextField
       fullWidth={fullWidth}
-      variant={variant}
+      variant={variant as any}
       type={isPassword ? (showPassword ? "text" : "password") : type}
       {...rest}
-      InputProps={{
-        endAdornment: isPassword && (
-          <InputAdornment position="end">
-            <IconButton
-              onClick={() => setShowPassword((prev) => !prev)}
-              edge="end"
-            >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
-            </IconButton>
-          </InputAdornment>
-        ),
-        ...rest.InputProps,
+      slotProps={{
+        input: {
+          endAdornment: isPassword && (
+            <InputAdornment position="end">
+              <IconButton
+                onClick={() => setShowPassword((prev) => !prev)}
+                edge="end"
+                sx={{
+                  color: COLORS.text.primary,
+                  "&:hover": { color: COLORS.primary },
+                }}
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        },
+        ...slotProps,
       }}
       sx={{
+        "& .MuiInputLabel-root": {
+          color: COLORS.text.secondary,
+        },
         "& .MuiInputLabel-root.Mui-focused": {
-          color: "#6366f1",
+          color: focusBorderColor,
         },
-        "& .MuiOutlinedInput-notchedOutline": {
-          borderColor: "#0f172a",
+        "& .MuiInputBase-input": {
+          fontSize: SIZES.fontSize.md,
+          color: COLORS.text.primary,
         },
-        "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-          borderColor: "#0f172a",
-        },
-        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-          {
-            borderColor: "#6366f1",
-          },
         ...sx,
       }}
     />

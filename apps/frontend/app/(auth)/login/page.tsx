@@ -1,10 +1,14 @@
-import LoginForm from "@/components/features/auth/components/LoginForm";
-import { useState } from "react";
+import React, { FC } from "react";
+import LoginForm from "@/components/features/auth/LoginForm";
 
-export default function LoginPage() {
+interface LoginPageProps {}
+
+const LoginPage: FC<LoginPageProps> = () => {
   return (
     <div style={{ display: "grid", placeItems: "center", height: "100%" }}>
       <LoginForm />
     </div>
   );
-}
+};
+
+export default LoginPage;

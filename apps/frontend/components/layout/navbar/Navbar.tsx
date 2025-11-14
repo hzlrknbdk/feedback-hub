@@ -1,42 +1,35 @@
 "use client";
 
+import React, { FC } from "react";
 import { Box, Typography } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import FullscreenIcon from "@mui/icons-material/Fullscreen";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import SettingsInputSvideoOutlinedIcon from "@mui/icons-material/SettingsInputSvideoOutlined";
-import LogoutIcon from "@mui/icons-material/Logout";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-
 import { Avatar } from "@/ui/dataDisplay/Avatar";
 import { Badge } from "@/ui/dataDisplay/Badge";
 import { IconButton } from "@/ui/dataDisplay/IconButton";
 import { Dropdown } from "@/ui/base/Dropdown";
 import { SearchBar } from "@/ui/form/SearchBar";
-import { COLORS, SIZES, TRANSITIONS, SHADOWS } from "@/styles";
+import { COLORS, SIZES, TRANSITIONS } from "@/styles";
+import { UI_ICONS } from "@/config/icons";
 
 interface NavbarProps {
   onMenuClick: () => void;
   isMenuOpen: boolean;
 }
 
-export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
+const Navbar: FC<NavbarProps> = ({ onMenuClick, isMenuOpen }) => {
   const userMenuItems = [
     {
       label: "Profile",
-      icon: <AccountCircleOutlinedIcon />,
+      icon: <UI_ICONS.profile />,
       onClick: () => console.log("Profile clicked"),
     },
     {
       label: "Settings",
-      icon: <SettingsInputSvideoOutlinedIcon />,
+      icon: <UI_ICONS.settings />,
       onClick: () => console.log("Settings clicked"),
     },
     {
       label: "Logout",
-      icon: <LogoutIcon />,
+      icon: <UI_ICONS.logout />,
       onClick: () => console.log("Logout clicked"),
     },
   ];
@@ -59,23 +52,27 @@ export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
           fontWeight={SIZES.fontWeight.medium}
           sx={{
             color: COLORS.primary,
-            fontSize: "1.5rem",
+            fontSize: SIZES.fontSize["2xl"],
             mx: SIZES.spacing.md,
           }}
         >
           FeedBack Hub
         </Typography>
-        <MenuIcon
+        <UI_ICONS.menu
           sx={{
-            fontSize: 22,
-            transition: "transform 0.3s ease-in-out",
+            fontSize: SIZES.iconSize,
+            transition: TRANSITIONS.smooth,
             transform: isMenuOpen ? "rotate(0deg)" : "rotate(180deg)",
+            cursor: "pointer",
+            ml: 5,
           }}
           onClick={onMenuClick}
         />
       </Box>
 
-      <Box sx={{ flexGrow: 1, maxWidth: 600, px: SIZES.spacing.md }}>
+      <Box
+        sx={{ flexGrow: 1, maxWidth: SIZES.maxWidth.md, px: SIZES.spacing.md }}
+      >
         <SearchBar placeholder="Search..." />
       </Box>
 
@@ -83,16 +80,16 @@ export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
         sx={{ display: "flex", alignItems: "center", gap: SIZES.spacing.sm }}
       >
         <IconButton>
-          <LightModeOutlinedIcon />
+          <UI_ICONS.lightMode />
         </IconButton>
 
         <IconButton>
-          <FullscreenIcon />
+          <UI_ICONS.fullscreen />
         </IconButton>
 
         <IconButton>
           <Badge badgeContent={3}>
-            <NotificationsNoneIcon />
+            <UI_ICONS.notifications />
           </Badge>
         </IconButton>
 
@@ -123,7 +120,7 @@ export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
               >
                 Hazal Budak
               </Typography>
-              <KeyboardArrowDownIcon
+              <UI_ICONS.arrowDown
                 sx={{
                   color: COLORS.primary,
                   fontSize: SIZES.iconSizeSmall,
@@ -135,4 +132,6 @@ export default function Navbar({ onMenuClick, isMenuOpen }: NavbarProps) {
       </Box>
     </Box>
   );
-}
+};
+
+export default Navbar;

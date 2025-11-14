@@ -1,18 +1,23 @@
 "use client";
 
+import React, { FC, useState, ReactNode } from "react";
 import { Box } from "@mui/material";
 import Sidebar from "@/components/layout/sidebar/Sidebar";
 import Navbar from "@/components/layout/navbar/Navbar";
-import { useState } from "react";
-interface DashboardLayoutProps {
-  children: React.ReactNode;
+
+interface MainLayoutProps {
+  children: ReactNode;
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleMenuClick = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleItemClick = () => {
+    setSidebarOpen(false);
   };
 
   return (
@@ -20,19 +25,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <Navbar onMenuClick={handleMenuClick} isMenuOpen={sidebarOpen} />
 
       <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
-        <Sidebar isOpen={sidebarOpen} />
+        <Sidebar isOpen={sidebarOpen} onItemClick={handleItemClick} />
 
-        <Box
-          sx={{
-            flex: 1,
-            overflow: "auto",
-            bgcolor: "#f8fafc",
-            p: 3,
-          }}
-        >
+        <Box sx={{ flex: 1, overflow: "auto", bgcolor: "#f8fafc", p: 3 }}>
           {children}
         </Box>
       </Box>
     </Box>
   );
-}
+};
+
+export default MainLayout;

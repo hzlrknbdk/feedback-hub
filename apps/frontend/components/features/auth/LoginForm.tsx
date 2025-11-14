@@ -1,20 +1,17 @@
 "use client";
 
+import React, { FC } from "react";
 import NextLink from "next/link";
 import { Stack, Typography, Link, Box } from "@mui/material";
 import { Button } from "@/components/ui/base/Button";
 import { TextField } from "@/components/ui/form/TextField";
 import { COLORS, SIZES } from "@/styles";
 
-export default function LoginForm() {
+interface LoginFormProps {}
+
+const LoginForm: FC<LoginFormProps> = () => {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: SIZES.maxWidth,
-        mx: "auto",
-      }}
-    >
+    <Box sx={{ width: "100%", maxWidth: SIZES.maxWidth.md, mx: "auto" }}>
       <form>
         <Stack spacing={SIZES.spacing.lg}>
           <Typography variant="h4">Welcome back</Typography>
@@ -52,4 +49,6 @@ export default function LoginForm() {
       </form>
     </Box>
   );
-}
+};
+
+export default LoginForm;

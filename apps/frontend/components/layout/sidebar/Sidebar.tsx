@@ -1,5 +1,6 @@
 "use client";
 
+import React, { FC } from "react";
 import { List, Typography } from "@/ui/dataDisplay";
 import { Box } from "@mui/material";
 import { MAIN_MENU } from "@/config/navigation";
@@ -9,9 +10,10 @@ import { COLORS, SIZES } from "@/styles";
 
 interface SidebarProps {
   isOpen: boolean;
+  onItemClick?: () => void;
 }
 
-export default function Sidebar({ isOpen }: SidebarProps) {
+const Sidebar: FC<SidebarProps> = ({ isOpen, onItemClick }) => {
   return (
     <Box
       sx={{
@@ -39,10 +41,13 @@ export default function Sidebar({ isOpen }: SidebarProps) {
               key={item.text}
               item={item}
               isCollapsed={!isOpen}
+              onItemClick={onItemClick}
             />
           ))}
         </List>
       </Box>
     </Box>
   );
-}
+};
+
+export default Sidebar;

@@ -1,15 +1,16 @@
 "use client";
 
+import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { SIZES } from "@/styles";
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface AuthLayoutProps {
+  children: ReactNode;
+}
+
+const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
   return (
     <Grid container sx={{ height: "100vh", overflow: "hidden" }}>
       <Grid
@@ -50,4 +51,6 @@ export default function AuthLayout({
       </Grid>
     </Grid>
   );
-}
+};
+
+export default AuthLayout;

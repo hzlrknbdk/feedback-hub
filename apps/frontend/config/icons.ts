@@ -1,4 +1,4 @@
-// Centralized icon management - Navigation + Form Elements
+// config/icons.ts
 import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import DynamicFormOutlinedIcon from "@mui/icons-material/DynamicFormOutlined";
@@ -36,6 +36,18 @@ import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded
 import RadioButtonChecked from "@mui/icons-material/RadioButtonChecked";
 import AccessTime from "@mui/icons-material/AccessTime";
 import ToggleOn from "@mui/icons-material/ToggleOn";
+
+// Navbar & UI Icons
+import MenuIcon from "@mui/icons-material/Menu";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import SettingsInputSvideoOutlinedIcon from "@mui/icons-material/SettingsInputSvideoOutlined";
+import LogoutIcon from "@mui/icons-material/Logout";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 
 // Navigation Icons
 export const NAVIGATION_ICONS = {
@@ -78,6 +90,20 @@ export const FORM_ELEMENT_ICONS = {
   starRating: StarHalfRoundedIcon,
   scaleRating: BarChartRoundedIcon,
   divider: HorizontalRuleRoundedIcon,
+} as const;
+
+// Navbar & UI Icons
+export const UI_ICONS = {
+  menu: MenuIcon,
+  lightMode: LightModeOutlinedIcon,
+  fullscreen: FullscreenIcon,
+  notifications: NotificationsNoneIcon,
+  arrowDown: KeyboardArrowDownIcon,
+  settings: SettingsInputSvideoOutlinedIcon,
+  logout: LogoutIcon,
+  profile: AccountCircleOutlinedIcon,
+  visibility: VisibilityOutlinedIcon,
+  save: SaveOutlinedIcon,
 } as const;
 
 // Backward compatibility

@@ -1,6 +1,7 @@
 "use client";
 
 import { IconButton as MuiIconButton, IconButtonProps } from "@mui/material";
+import { COLORS, SIZES, TRANSITIONS } from "@/styles";
 
 export const IconButton = ({
   sx,
@@ -12,19 +13,19 @@ export const IconButton = ({
     <MuiIconButton
       {...rest}
       sx={{
-        borderRadius: 0.5,
-        width: 40,
-        height: 40,
-        color: "#0E172A",
-        transition: "all 0.2s ease-in-out",
+        borderRadius: SIZES.radius.sm,
+        width: SIZES.buttonHeight,
+        height: SIZES.buttonHeight,
+        color: COLORS.text.primary,
+        transition: TRANSITIONS.smooth,
         "& .MuiSvgIcon-root": {
-          fill: "#0E172A",
+          fill: COLORS.text.primary,
         },
         "&:hover": {
-          bgcolor: "#E0E1FC",
-          color: "#6366f1",
+          bgcolor: COLORS.hover,
+          color: COLORS.primary,
           "& .MuiSvgIcon-root": {
-            fill: "#6366f1",
+            fill: COLORS.primary,
           },
         },
         ...sx,

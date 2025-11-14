@@ -1,5 +1,10 @@
-import RegisterForm from "@/components/features/auth/components/RegisterForm";
+import React, { FC } from "react";
+import RegisterForm from "@/components/features/auth/RegisterForm";
 
-export default function Register() {
+interface RegisterPageProps {}
+
+const RegisterPage: FC<RegisterPageProps> = () => {
   return <RegisterForm />;
-}
+};
+
+export default RegisterPage;
