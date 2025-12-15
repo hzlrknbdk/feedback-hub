@@ -1,6 +1,6 @@
 "use client";
 
-import { TextField } from "./TextField";
+import { TextField } from "../inputs/TextField";
 import { TextFieldProps } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 

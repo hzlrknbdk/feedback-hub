@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import NextLink from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/base/Button";
-import { TextField } from "@/components/ui/form/TextField";
+import { TextField } from "@/components/ui/form/inputs/TextField";
 import { Stack, Typography, Link, Divider } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { COLORS, SIZES } from "@/styles";

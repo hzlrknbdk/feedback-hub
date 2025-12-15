@@ -66,15 +66,15 @@ importers:
       '@emotion/styled':
         specifier: 11.14.1
         version: 11.14.1(@emotion/react@11.14.0(@types/react@19.1.0)(react@18.2.0))(@types/react@19.1.0)(react@18.2.0)
+      '@hookform/resolvers':
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.68.0(react@18.2.0))
       '@mui/icons-material':
         specifier: 6.5.0
         version: 6.5.0(@mui/material@6.5.0(@emotion/react@11.14.0(@types/react@19.1.0)(react@18.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.0)(react@18.2.0))(@types/react@19.1.0)(react@18.2.0))(@types/react@19.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react@19.1.0)(react@18.2.0)
       '@mui/material':
         specifier: 6.5.0
         version: 6.5.0(@emotion/react@11.14.0(@types/react@19.1.0)(react@18.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.0)(react@18.2.0))(@types/react@19.1.0)(react@18.2.0))(@types/react@19.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       next:
         specifier: 14.1.4
         version: 14.1.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -84,9 +84,15 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.68.0
+        version: 7.68.0(react@18.2.0)
       recharts:
         specifier: ^3.1.2
         version: 3.1.2(@types/react@19.1.0)(react-dom@18.2.0(react@18.2.0))(react-is@19.2.0)(react@18.2.0)(redux@5.0.1)
+      zod:
+        specifier: ^4.0.15
+        version: 4.0.15
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -147,37 +153,6 @@ importers:
         version: 8.37.0(eslint@9.31.0(jiti@2.5.1))(typescript@5.8.2)
 
   packages/typescript-config: {}
-
-  packages/ui:
-    dependencies:
-      react:
-        specifier: ^19.1.0
-        version: 19.1.0
-      react-dom:
-        specifier: ^19.1.0
-        version: 19.1.0(react@19.1.0)
-    devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-      '@types/node':
-        specifier: ^22.15.3
-        version: 22.15.3
-      '@types/react':
-        specifier: 19.1.0
-        version: 19.1.0
-      '@types/react-dom':
-        specifier: 19.1.1
-        version: 19.1.1(@types/react@19.1.0)
-      eslint:
-        specifier: ^9.31.0
-        version: 9.31.0(jiti@2.5.1)
-      typescript:
-        specifier: 5.8.2
-        version: 5.8.2
 
 packages:
 
@@ -341,6 +316,11 @@ packages:
   '@eslint/plugin-kit@0.3.5':
     resolution: {integrity: sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
+    peerDependencies:
+      react-hook-form: ^7.55.0
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1934,10 +1914,11 @@ packages:
     peerDependencies:
       react: ^18.2.0
 
-  react-dom@19.1.0:
-    resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
+  react-hook-form@7.68.0:
+    resolution: {integrity: sha512-oNN3fjrZ/Xo40SWlHf1yCjlMK417JxoSJVUXQjGdvdRCU07NTFei1i1f8ApUAts+IVh14e4EdakeLEA+BEAs/Q==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: ^19.1.0
+      react: ^16.8.0 || ^17 || ^18 || ^19
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -1965,10 +1946,6 @@ packages:
 
   react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
-    engines: {node: '>=0.10.0'}
-
-  react@19.1.0:
-    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
 
   read-package-up@11.0.0:
@@ -2065,9 +2042,6 @@ packages:
 
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
-
-  scheduler@0.26.0:
-    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -2649,6 +2623,11 @@ snapshots:
     dependencies:
       '@eslint/core': 0.15.2
       levn: 0.4.1
+
+  '@hookform/resolvers@5.2.2(react-hook-form@7.68.0(react@18.2.0))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.68.0(react@18.2.0)
 
   '@humanfs/core@0.19.1': {}
 
@@ -4438,10 +4417,9 @@ snapshots:
       react: 18.2.0
       scheduler: 0.23.2
 
-  react-dom@19.1.0(react@19.1.0):
+  react-hook-form@7.68.0(react@18.2.0):
     dependencies:
-      react: 19.1.0
-      scheduler: 0.26.0
+      react: 18.2.0
 
   react-is@16.13.1: {}
 
@@ -4468,8 +4446,6 @@ snapshots:
   react@18.2.0:
     dependencies:
       loose-envify: 1.4.0
-
-  react@19.1.0: {}
 
   read-package-up@11.0.0:
     dependencies:
@@ -4601,8 +4577,6 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
-
-  scheduler@0.26.0: {}
 
   semver@6.3.1: {}
 

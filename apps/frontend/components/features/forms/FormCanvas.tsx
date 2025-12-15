@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { Box, Typography, Card, TextField } from "@mui/material";
 import { COLORS, SIZES, SHADOWS } from "@/styles";
 import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
-import { Textarea } from "@/components/ui/form/Textarea";
+import { Textarea } from "@/components/ui/form/inputs/Textarea";
 
 interface FormCanvasProps {}
 

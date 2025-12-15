@@ -33,7 +33,7 @@ export const RichTextEditor = ({
 
   const handleFormat = (
     event: React.MouseEvent<HTMLElement>,
-    newFormats: string[],
+    newFormats: string[]
   ) => {
     setFormats(newFormats);
   };

@@ -6,7 +6,7 @@ import { Avatar } from "@/ui/dataDisplay/Avatar";
 import { Badge } from "@/ui/dataDisplay/Badge";
 import { IconButton } from "@/ui/dataDisplay/IconButton";
 import { Dropdown } from "@/ui/base/Dropdown";
-import { SearchBar } from "@/ui/form/SearchBar";
+import { SearchBar } from "@/components/ui/form/fields/SearchBar";
 import { COLORS, SIZES, TRANSITIONS } from "@/styles";
 import { UI_ICONS } from "@/config/icons";
 

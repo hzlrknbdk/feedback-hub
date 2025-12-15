@@ -2,7 +2,7 @@
 
 import React, { FC, useState, useMemo } from "react";
 import { Box, Card, Typography } from "@mui/material";
-import { SearchBar } from "@/components/ui/form/SearchBar";
+import { SearchBar } from "@/components/ui/form/fields/SearchBar";
 import { FormElement } from "@/lib/types/form";
 import { FORM_ELEMENTS } from "@/config/formElements";
 import { COLORS, SIZES, TRANSITIONS, SHADOWS } from "@/styles";

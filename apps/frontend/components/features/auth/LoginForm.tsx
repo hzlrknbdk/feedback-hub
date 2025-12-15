@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import NextLink from "next/link";
 import { Stack, Typography, Link, Box } from "@mui/material";
 import { Button } from "@/components/ui/base/Button";
-import { TextField } from "@/components/ui/form/TextField";
+import { TextField } from "@/components/ui/form/inputs/TextField";
 import { COLORS, SIZES } from "@/styles";
 
 interface LoginFormProps {}
