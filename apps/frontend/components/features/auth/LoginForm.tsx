@@ -2,18 +2,33 @@
 
 import React, { FC } from "react";
 import NextLink from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Stack, Typography, Link, Box } from "@mui/material";
 import { Button } from "@/components/ui/base/Button";
-import { TextField } from "@/components/ui/form/inputs/TextField";
+import { TextField } from "@/components/ui/form/inputs";
 import { COLORS, SIZES } from "@/styles";
+import { loginSchema, LoginFormData } from "@/lib/types/auth";
 
 interface LoginFormProps {}
 
 const LoginForm: FC<LoginFormProps> = () => {
+  const { control, handleSubmit } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = async (data: LoginFormData) => {
+    console.log("Form Data:", data);
+  };
+
   return (
     <Box sx={{ width: "100%", maxWidth: SIZES.maxWidth.md, mx: "auto" }}>
-      <form>
-        <Stack spacing={SIZES.spacing.lg}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={SIZES.spacing.md}>
           <Typography variant="h4">Welcome back</Typography>
 
           <Typography variant="body1">
@@ -29,19 +44,19 @@ const LoginForm: FC<LoginFormProps> = () => {
           </Typography>
 
           <TextField
-            label="Email"
+            control={control}
             name="email"
+            label="Email"
             type="email"
-            autoComplete="email"
-            required
+            placeholder="example@email.com"
           />
 
           <TextField
-            label="Password"
+            control={control}
             name="password"
+            label="Password"
             type="password"
-            autoComplete="current-password"
-            required
+            placeholder="••••••••"
           />
 
           <Button type="submit">Log in</Button>

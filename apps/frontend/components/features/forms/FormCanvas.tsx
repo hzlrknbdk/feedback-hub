@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { Box, Typography, Card, TextField } from "@mui/material";
 import { COLORS, SIZES, SHADOWS } from "@/styles";
 import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
-import { Textarea } from "@/components/ui/form/inputs/Textarea";
+// import { Textarea } from "@/components/ui/form/inputs/Textarea";
 
 interface FormCanvasProps {}
 
@@ -29,14 +29,14 @@ const FormCanvas: FC<FormCanvasProps> = () => {
           borderBottom: `1px solid ${COLORS.border}`,
         }}
       >
-        <TextField placeholder="Title" variant="standard" sx={{ pb: 2 }} />
+        {/* <TextField placeholder="Title" variant="standard" sx={{ pb: 2 }} /> */}
 
-        <Textarea
+        {/* <Textarea
           placeholder="Form description (optional)"
           placeholderColor={COLORS.text.tertiary}
           textColor={COLORS.text.tertiary}
           maxRows={2}
-        />
+        /> */}
       </Box>
 
       <Box

@@ -13,8 +13,8 @@
 // export { TimeField } from "./TimeField";
 // export { ParagraphField } from "./ParagraphField";
 export { FileUploader } from "./FileUploader";
-export { ColorPicker } from "./ColorPicker";
-export { CurrencyInput } from "./CurrencyInput";
+// export { ColorPicker } from "./ColorPicker";
+// export { CurrencyInput } from "./CurrencyInput";
 export { RichTextEditor } from "./RichTextEditor";
 export { SearchBar } from "./SearchBar";
 export { DropdownMultiSelect } from "./DropdownMultiSelect";

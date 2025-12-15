@@ -1,4 +1,4 @@
-import { FormElement } from "@/lib/types/form";
+import { FormElement } from "@/lib/types/forms";
 import { FORM_ELEMENT_ICONS } from "@/config/icons";
 
 export const FORM_ELEMENTS: FormElement[] = [
