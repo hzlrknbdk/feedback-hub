@@ -1,4 +1,3 @@
-// lib/types/auth.ts
 import { z } from "zod";
 
 // ========== Validation Patterns ==========
@@ -76,7 +75,7 @@ export const loginSchema = z.object({
     .string()
     .min(1, MESSAGES.email.required)
     .pipe(z.email(MESSAGES.email.invalid)),
-  password: z.string().min(1, MESSAGES.password.required),
+  password: passwordField,
 });
 
 // ========== Types ==========

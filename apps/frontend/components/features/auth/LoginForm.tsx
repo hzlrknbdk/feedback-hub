@@ -15,6 +15,7 @@ interface LoginFormProps {}
 const LoginForm: FC<LoginFormProps> = () => {
   const { control, handleSubmit } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
